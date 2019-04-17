@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Elementos HTML 5</title>
+
+<script>
+function iniciar(){
+//Para validación de que por lo menos se escriba un nombre
+	nombre1=document.getElementById("txtPrimerNombre");
+	nombre2=document.getElementById("txtSegundoNombre");
+	nombre1.addEventListener("input", validacion, false);
+	nombre2.addEventListener("input", validacion, false);
+//Para validación de que el campo teléfono tenga 10 números
+	telefono = document.getElementById("txtTelefono");
+	validacion();
+//Para conectar el range con el output	
+edad=document.getElementById("rangoEdad");
+edad.addEventListener("change", cambiarrango, false);	
+	
+	
+	
+}
+
+function cambiarrango(){
+	//captura en salida el elemento output llamado rango
+	var salida=document.getElementById("rango");
+	//captura en la variable clalc el valor que tiene el rangoEdad, le resta 20
+	var calc=rangoEdad.value-20;
+	//Si el valor de calc es menor a 20
+	if(calc<20){
+		calc=0; //calc pasa a valer 0
+		rangoEdad.value=20; //El valor del elemento rangoEdad se establece en 20
+	}
+	//se actualiza el valor del elemento output llamado rango que estaba capturado en la variable salida
+	salida.innerHTML=calc+' a '+edad.value;
+}
+
+
+function validacion(){
+	if(nombre1.value=='' && nombre2.value==''){
+		nombre1.setCustomValidity('inserte al menos un nombre');
+		nombre1.style.background='#FFDDDD';
+		nombre2.setCustomValidity('inserte al menos un nombre');
+		nombre2.style.background='#FFDDDD';
+	}else{
+		nombre1.setCustomValidity('');
+		nombre1.style.background='#FFFFFF';
+		nombre2.setCustomValidity('');
+		nombre2.style.background='#FFFFFF';
+	}
+	//Validación del campo teléfono
+	if (telefono.validity.valid) {
+		telefono.setCustomValidity('Deben ser 10 números');
+		telefono.style.background = '#FFDDDD';
+	}
+	else {
+		telefono.setCustomValidity('Deben ser 10 números');
+		telefono.style.background = '#FFFFFF';
+	}
+		
+}
+
+
+
+window.addEventListener("load", iniciar, false);
+</script>
+
+
+</head>
+<body>
+<form id="frmDatosPersonales">
+<p>En este formulario se debe ingresar por lo menos un nombre, está validado con setCustomValidity</p>
+<span>Primer nombre(placeholder): </span>
+<input type="text" id="txtPrimerNombre" name="txtPrimerNombre" placeholder="Ingrese aquí el pirmer nombre" /><br>
+<span>Segundo nombre(autofocus): </span>
+<input type="text" id="txtSegundoNombre" name="txtSegundoNombre" autofocus="" /><br>
+<span>Primer apellido: (required) </span>
+<input type="text" id="txtPrimerApellido" name="txtPrimerApellido" required="" /><br>
+<span>Segundo apellido: </span>
+<input type="text" id="txtSegundoApellido" name="txtSegundoApellido" /><br>
+<span>Aficiones (múltiple, separado por comas): </span>
+<input type="text" id="txtAficiones" name="txtAficiones" placeholder="Escriba sus aficiones separadas por comas" /><br>
+<span>Teléfono (pattern validado con expresiones regulares, 10 números): </span>
+<input pattern="[0-9]{10}" id="txtTelefono" name="txtTelefono" maxlength="10" title="Debe ingresar 10 números" /><br>
+<datalist id="lsCiudad">
+	<option>Cuenca</option>
+	<option>Guayaquil</option>
+	<option>Loja</option>
+	<option>Quito</option>
+</datalist>
+
+<span>Ciudad (Utiliza datalist para mostrar sugerencias) : </span>
+<input type="text" id="txtCiudad" name="txtCiudad" list="lsCiudad" /><br>
+
+Rango de Edad:
+<input type="range" name="rangoEdad" id="rangoEdad" min="0" max="80" step="20" value="20">
+<output id="rango">0 a 20</output>
+
+
+<input type="submit" />
+</form>
+
+</body>
+</html>

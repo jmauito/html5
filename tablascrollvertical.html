@@ -1,0 +1,79 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="tablascrollvertical.css" />
+<script src="tablascrollvertical.js"></script>
+</head>
+
+<body>
+
+
+
+<h1>Desplazamiento horizontal de celdas (por columna). </h1>
+<p>Mantiene encabezados a la izquierda. </p>
+<table>
+<tr>
+<td></td>
+<td>A</td>
+<td>B</td>
+<td>C</td>
+<td>D</td>
+<td>E</td>
+<td>F</td>
+<td>G</td>
+<td>H</td>
+<td>I</td>
+<td>J</td>
+</tr>
+<tr>
+<td>Animales</td>
+<td>Ardilla</td>
+<td>Bisonte</td>
+<td>Canguro</td>
+<td>Delfín</td>
+<td>Escorpión</td>
+<td>Flamenco</td>
+<td>Guacamayo</td>
+<td>Hipopótamo</td>
+<td>Iguana</td>
+<td>Jerbo</td>
+</tr>
+<tr>
+<td>Capitales</td>
+<td>Ankara</td>
+<td>Buenos Aires</td>
+<td>Copenhague</td>
+<td>Damasco</td>
+<td>Estocolmo</td>
+<td>Freetown</td>
+<td>Georgetown</td>
+<td>Helsinki</td>
+<td>Islamabad</td>
+<td>Jartum</td>
+</tr>
+<tr>
+<td>Varios</td>
+<td>Aldaba</td>
+<td>Bolígrafo</td>
+<td>Cantimplora</td>
+<td>Dedal</td>
+<td>Estetoscopio</td>
+<td>Filigrana</td>
+<td>Gineceo</td>
+<td>Horóscopo</td>
+<td>Isla</td>
+<td>Juguete</td>
+</tr>
+</table>
+
+<input type="range" min="0" max="" step="1" class="grab"
+onchange="llenaTabla(this.value)" oninput="llenaTabla(this.value)" 
+onmousedown="this.className='grabbing'" onmouseup="this.className='grab'">
+
+<footer>Para <a target="blank" href="https://escss.blogspot.com/2016/09/manejo-grandes-tablas-html.html">EsCss</a>. </footer>
+
+Rerun
+
+
+</body>
+
+</html>

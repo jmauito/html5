@@ -1,0 +1,13 @@
+#boxFormulario{
+	float : left;
+	width : 30%;
+	min-width : 300px;
+	border : solid 1px #999999;
+	margin-left: 10px;
+}
+#boxRespuesta{
+	float: left;
+	border : solid 1px #999999;
+	min-width: 500px;
+	min-height: 100px;
+}

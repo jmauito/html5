@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Formularios</title>
+<script>
+
+//Pinta de rojo todos los elementos que hicieron que el formulario no se valide
+//Se usa el evento invalid, que indica que algún elemento falló al momento de tratar de enviar el formulario
+//La función validacion captura el elemento que produjo el error y lo pinta de rojo
+
+function iniciar(){
+
+	
+	document.informacion.addEventListener("invalid",validacion, true);
+	document.getElementById("enviar").addEventListener("click",enviar, false);
+}
+
+function validacion(e){
+	var elemento=e.target;
+	elemento.style.background='#FFDDDD';
+	
+}
+
+function enviar(){
+	var valido=document.informacion.checkValidity();
+	if(valido){
+		document.informacion.submit();
+	}
+}
+
+window.addEventListener("load", iniciar, false);
+
+</script>
+</head>
+<body>
+<section>
+<form name="informacion" method="get">
+Usuario:
+<input pattern="[A-Za-z]{3,}" name="usuario" id="usuario" maxlength="10" required>
+Email:
+<input type="email" name="miemail" id="miemail" required>
+
+<input type="button" id="enviar" value="ingresar">
+</form>
+</section>
+</body>
+</html>

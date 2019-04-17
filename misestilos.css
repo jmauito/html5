@@ -1,0 +1,120 @@
+
+/*Aplicar estilos al p número 2 que tengan como padre (>) un div cuyo id sea wrapper ([id="wrapper"])*/
+div[id="wrapper"]>p:nth-child(2){
+	background: #999999;
+}
+
+/*Aplicar estilos a todos los p impares que tengan como padre un div de clase "lista"*/
+div.lista>p:nth-child(odd){
+	background: #999999;
+}
+
+/*Aplicar estilos a todos los p pares (even) que tengan como padre (>) un div de clase "lista"*/
+div.lista>p:nth-child(even){
+	background: #CCCCC0;
+}
+
+* {
+margin: 0px;
+padding: 0px;
+}
+
+h1 {
+font: bold 20px verdana, sans-serif;
+}
+h2 {
+font: bold 14px verdana, sans-serif;
+}
+
+/*Declarar los nuevos elementos html5 como bloque porque algunos navegadores los tratan
+aún como inline*/
+header, section, footer, aside, nav, article, figure, figcaption,
+hgroup{
+display: block;
+}
+
+/*CENTRANDO TODO EL CONTENIDO:
+	1. Centrar todo el contenido de Body
+	2. Dar el ancho deseado al DIV principal (#agrupar) y establecer su alineación en left, para evitar que
+		el center de BODY ponga todo el contenido centrado.
+*/
+
+body {
+text-align: center;
+}
+
+#agrupar {
+width: 960px;
+margin: 15px auto;
+text-align: left;
+}
+
+#cabecera {
+background: #FFFBB9;
+border: 1px solid #999999;
+padding: 20px;
+}
+
+article {
+	background: #FFFBCC;
+	border: 1px solid #999999;
+	padding: 20px;
+	margin-bottom: 15px;
+}
+article footer {
+	text-align: right;
+}
+time {
+	color: #999999;
+}
+figcaption {
+	font: italic 14px verdana, sans-serif;
+}
+
+/*MENÚS:
+	el menu li tiene display:inline-block, que indica que se presente como bloque
+	pero en línea es decir sin el salto de línea
+	el list-style:none indica que no muestre la viñeta que siempre muestran las listas
+*/
+
+#menu {
+background: #CCCCCC;
+padding: 5px 15px;
+}
+#menu li {
+display: inline-block;
+list-style: none;
+padding: 5px;
+font: bold 14px verdana, sans-serif;
+}
+
+/*BLOQUES ORDENADOS HORIZONTALMENTE
+	Estas opciones permiten que los bloques seccion y columna se muestren uno al lado de otro
+	y no uno debajo de otro:
+	
+	1. A #seccion y #columna se los declara float:left, es decir que busquen el primer espacio libre a la izquierda
+	2. A ambos elementos se les establece un ancho y un margen que será el espacio real en píxeles que ocuparán
+	(espacio real que ocupan = width + margin + padding) aquí no marcamos padding, pues anteriormente ya lo
+	declaramos como cero.
+	3. Para que todo vuelva a la normalidad, es decir los bloques ya no se acomoden hacia la izquierda, a #footer
+		se lo declara clear:both. Así los bloques seguirán colocándose hacia abajo como es normal.
+*/
+#seccion {
+float: left;
+width: 660px;
+margin: 20px;
+}
+#columna {
+float: left;
+width: 220px;
+margin: 20px 0px;
+padding: 20px;
+background: #CCCCCC;
+}
+
+#pie {
+clear: both;
+text-align: center;
+padding: 20px;
+border-top: 2px solid #999999;
+}

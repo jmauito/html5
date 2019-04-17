@@ -1,0 +1,46 @@
+
+
+body {
+
+text-align: center; 
+}
+table {
+margin: auto; 
+
+}
+
+td {
+padding: 0 .5em; 
+/*white-space: nowrap;*/
+border: solid 1px black; 
+ 
+
+}
+td:first-of-type , tr:first-of-type td {
+padding: 0 .1em; 
+font: normal small-caps 900 100%/1 sans-serif; 
+color: white; 
+width: 6.5em; 
+background-color: dimgrey; 
+text-align: center; 
+}
+td:first-of-type {
+text-align: right; 
+}
+
+input {
+margin: 0 0; 
+background-color: dimgrey; 
+box-shadow: inset 0 0 1em 1em dimgrey; 
+padding: .03em 0; 
+outline: none; 
+}
+
+.grab {
+cursor: grab; cursor: -webkit-grab; 
+}
+.grabbing {
+cursor: grabbing; cursor: -webkit-grabbing; 
+}
+
+Rerun

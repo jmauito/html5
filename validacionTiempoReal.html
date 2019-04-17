@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Formularios</title>
+<script>
+
+//Hace que los textos se validen según se va escribiendo
+
+function iniciar(){
+	//Al formulario se le agrega una escucha para el evento invalid
+	document.informacion.addEventListener("invalid",validacion, true);
+	//Al botón enviar se genera una escucha cuando se le de click para validar los campos
+	document.getElementById("enviar").addEventListener("click",enviar, false);
+	//Al formulario se le agrera una escucha al evento input	
+	document.informacion.addEventListener("input", controlar,false);
+}
+
+
+
+function validacion(e){
+	//con la propiedad target se captura el elemento que generó el llamado al evento
+	var elemento=e.target;
+	//El elemento que generó el error es pintado de rojo
+	elemento.style.background='#FFDDDD';
+}
+
+function enviar(){
+	//se captura el estado de válido o no del formulario con el método checkValidity
+	var valido=document.informacion.checkValidity();
+	//Si el estado es válido, la información es enviada
+	if(valido){
+		document.informacion.submit();
+	}
+}
+
+
+function controlar(e){
+	//la propiedad target crea una referencia al objeto que generó el evento
+	var elemento=e.target;
+	//si el atributo validity del elemento que disparó el evento es valid
+	if(elemento.validity.valid){
+		elemento.style.background='#FFFFFF'; //el fondo se hará blanco
+	}else{
+		elemento.style.background='#FFDDDD'; //el fondo se hace rojo
+	}
+}
+window.addEventListener("load", iniciar, false);
+
+</script>
+</head>
+<body>
+<section>
+<form name="informacion" method="get">
+Usuario:
+<input pattern="[A-Za-z]{3,}" name="usuario" id="usuario"
+maxlength="10" required>
+Email:
+<input type="email" name="miemail" id="miemail" required>
+
+<input type="button" id="enviar" value="ingresar">
+</form>
+</section>
+</body>
+</html>

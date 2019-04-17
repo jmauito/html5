@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Este texto es el título del documento</title>
+<script>
+function mostraralerta(){
+alert('hizo clic!');
+}
+function hacerclic(){
+var elemento=document.getElementsByTagName('p')[0];
+
+//El método addEventListener une el evento con el método a ejecutar.
+// los parámetros son: evento, método, true/false
+// el true/false sirve para indicar cuál evento se hará caso si hay dos elementos
+// uno dentro de otro y ambos tienen un método click
+// se recomienda el uso de false para la mayoría de las ocaciones.
+
+elemento.addEventListener('click', mostraralerta, false);
+}
+
+//de la misma forma, addEventListener se usa para el window.load
+window.addEventListener('load', hacerclic, false);
+
+</script>
+
+</head>
+<body>
+<div id="principal">
+	<p>Hacer Clic</p>
+	<p>No puede hacer Clic</p>
+</div>
+</body>
+</html>

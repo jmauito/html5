@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Este texto es el título del documento</title>
+<script>
+function mostraralerta(){
+alert('hizo clic!');
+}
+function hacerclic(){
+
+//Para conectar un elemento con un método a través de un evento se puede utilizar:
+
+//getElementByTagName:
+//Devuelve un array de todos los elementos que son del tipo especificado
+//es por eso que para agregar a un elemento se debe usar el índice entre corchetes
+document.getElementsByTagName('p')[0].onclick=mostraralerta;
+
+//querySelector:
+//con querySelector se puede elegir un elemento al estilo CSS3
+//En este caso llamamos al último elemento p del div principal
+document.querySelector("#principal p:last-child").onclick=mostraralerta;
+
+//querySelectorAll:
+//Todos los elementos que coinciden con el valor pasado como parámetro
+//se los debe bajar a una variable tipo array
+//de allí se llama desde la variable con el índice
+//para el ejemplo hemos aplicado el método a todos los elementos p
+// del div todosClic
+//bajamos todos los p a la variable elementosP
+//y con ayuda de un for agregamos a todos los elementos
+
+var elementosP = document.querySelectorAll("#todosClic p");
+for (var indice=0; indice < elementosP.length; indice++ ) {
+	elementosP[indice].onclick=mostraralerta;
+}
+//elementosP[3].onclick=mostraralerta;
+}
+
+
+
+window.onload=hacerclic;
+</script>
+
+</head>
+<body>
+<div id="principal">
+<p>Hacer Clic, con getElementByTagName</p>
+<p>No puede hacer Clic</p>
+<p>Hacer Clic, con querySelector</p>
+</div>
+
+<div id="todosClic">
+<p>Hacer Clic, con querySelectorAll</p>
+<p>Hacer Clic, con querySelectorAll</p>
+<p>Hacer Clic, con querySelectorAll</p>
+<p>Hacer Clic, con querySelectorAll</p>
+<p>Hacer Clic, con querySelectorAll</p>
+</div>
+
+
+
+</div>
+
+
+</body>
+</html>

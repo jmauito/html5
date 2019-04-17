@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Textos validados</title>
+<script type="text/javascript" >
+
+function validar(e) {
+
+	//capturar el elemento que produjo el error
+	var elemento = e.target;
+	
+	// Ahora, según la clase que sea el elemento se realizará la comprobación	
+	switch(elemento.className) {
+		
+	case 'soloNumeros':
+		//Para soloNumeros vamos a eliminar el último caracter ingresado, que generalmente es el que produce el error
+		//Como el método está validado para que elimine si no es valid, en caso de insertar una letra en la mitad o
+		//al comienzo, se eliminará toda la cadena	
+		if (!elemento.validity.valid) {
+			elemento.value = elemento.value.substr(0,elemento.value.length-1);
+		}
+		
+	}
+	
+		
+}
+
+
+function iniciar() {
+	document.frmTextos.addEventListener("input",validar,false);
+	//numeros = document.getElementsByClassName('soloNumeros');
+	//numeros[0].addEventListener("input",valida,false);
+}
+
+window.addEventListener("load",iniciar,true);
+
+</script>
+
+
+</head>
+
+<body>
+
+<form id="frmTextos" name="frmTextos">
+<h1>Validación de textos</h1>
+
+<span>Sólo números enteros del uno al cincuenta: </span>
+<input type="number" id="txtNumerosEnteros" name="txtNumerosEnteros" max="50" min="1" value="0" class="soloNumeros" required=""/>
+
+<span>Sólo números uno al diez, pueden tener hasta dos decimales: </span>
+<input type="number" id="txtNumerosDecimales" name="txtNumerosDecimales" max="50" min="1" step="0.01" value="0" class="soloNumeros" required=""/>
+
+
+<input type="submit" />
+</form>
+</body>
+</html>
